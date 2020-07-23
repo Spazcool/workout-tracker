@@ -18,14 +18,18 @@ let workoutType = null;
 let shouldNavigateAway = false;
 
 async function initExercise() {
+  console.log('in this bloody funciton at least')
   let workout;
 
   if (location.search.split("=")[1] === undefined) {
+    console.log(' undefined? workout:', workout)
     workout = await API.createWorkout()
-    console.log(workout)
   }
   if (workout) {
+    console.log('with idworkout:', workout)
+
     location.search = "?id=" + workout._id;
+
   }
 
 }
@@ -113,8 +117,6 @@ async function handleFormSubmit(event) {
     workoutData.reps = Number(repsInput.value.trim());
     workoutData.duration = Number(resistanceDurationInput.value.trim());
   }
-  console.log('heer?')
-  console.log(workoutData)
   await API.addExercise(workoutData);
   clearInputs();
   toast.classList.add("success");
