@@ -80,6 +80,3 @@ module.exports = Exercise;
 //   this.fullName = `${this.firstName} ${this.lastName}`;
 // };
 
-// ExerciseSchema.methods.lastUpdatedDate = function() {
-//   this.lastUpdated = Date.now();
-// };
