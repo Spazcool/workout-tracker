@@ -43,24 +43,18 @@ app.put("/api/workouts/:id", (req, res) => {
     .then((data) => {
       db.Workout.findByIdAndUpdate(
         { _id: id },
-        {$push: { exercises: data._id }},
-        (err, result) => err ? err : result
-      )
-      .then((workout) => {
-        const tempTotalDuration = workout.totalDuration + data.duration;
-        db.Workout.findByIdAndUpdate(
-          { _id: id },
-          {$set: { totalDuration: tempTotalDuration }},
-          (err, result) => {
-            if (err) {
-              console.log(err)
-              res.send(err)
-            } else {
-              res.send(result)
-            }
+        {
+          $push: { exercises: data._id },
+          $inc: { totalDuration: data.duration}
+        },
+        (err, result) => {
+          if (err) {
+            res.send(err)
+          } else {
+            res.send(result)
           }
-        )
-      })
+        }
+      )
     })
     .catch(err => res.json(err));
 })
