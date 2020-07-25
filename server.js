@@ -73,10 +73,10 @@ app.post("/api/workouts", (req, res) => {
 });
 
 // ------------------ PUBLIC ROUTES ------------------
-app.get('/', (req, res) => res.sendFile('index.html', root));
-app.get('/exercise', (req, res) => res.sendFile('exercise.html', root));
-app.get('/stats', (req, res) => res.sendFile('stats.html', root));
-app.get('*', (req, res) => res.sendFile('index.html', root));
+app.get('/', (req, res) => res.sendFile('./html/index.html', root));
+app.get('/exercise', (req, res) => res.sendFile('./html/exercise.html', root));
+app.get('/stats', (req, res) => res.sendFile('./html/stats.html', root));
+app.get('*', (req, res) => res.sendFile('./html/index.html', root));
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
