@@ -18,20 +18,14 @@ let workoutType = null;
 let shouldNavigateAway = false;
 
 async function initExercise() {
-  console.log('in this bloody funciton at least')
   let workout;
 
   if (location.search.split("=")[1] === undefined) {
-    console.log(' undefined? workout:', workout)
     workout = await API.createWorkout()
   }
   if (workout) {
-    console.log('with idworkout:', workout)
-
     location.search = "?id=" + workout._id;
-
   }
-
 }
 
 initExercise();

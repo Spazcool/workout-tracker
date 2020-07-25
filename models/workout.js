@@ -18,11 +18,6 @@ const WorkoutSchema = new Schema({
   }
 });
 
-WorkoutSchema.methods.calculateDurationTotal = (num) => {
-  //make a db.Exercise call on all 
-  this.totalDuration += num;
-};
-
 const Workout = mongoose.model("Workout", WorkoutSchema);
 
 module.exports = Workout;

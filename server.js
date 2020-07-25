@@ -15,17 +15,23 @@ app.use(express.static("public"));
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
 mongoose.set('useFindAndModify', false);
 
-// Routes
+// ------------------ API ROUTES ------------------
+// getLastWorkout
 app.get("/api/workouts", (req, res) => {
   db.Workout.find()
     .then((data) => res.json(data))
     .catch((err) => res.json(err))
 });
 
+// getWorkoutsInRange
 app.get("/api/workouts/range", (req, res) => {
-
+  db.Workout.find()
+    .populate('exercises')
+    .then((data) => res.json(data))
+    .catch((err) => res.json(err))
 });
 
+// ADD EXERCISE
 app.put("/api/workouts/:id", (req, res) => {
   const id = req.params.id;
   const body = req.body;
@@ -57,18 +63,21 @@ app.put("/api/workouts/:id", (req, res) => {
       )
     })
     .catch(err => res.json(err));
-})
+});
 
+// CREATE WORKOUT
 app.post("/api/workouts", (req, res) => {
   db.Workout.create({})
     .then(data => res.json(data))
     .catch(err => res.json(err));
 });
 
-// ------------------ PUBLIC ----------------
+// ------------------ PUBLIC ROUTES ------------------
+app.get('/', (req, res) => res.sendFile('index.html', root));
 app.get('/exercise', (req, res) => res.sendFile('exercise.html', root));
+app.get('/stats', (req, res) => res.sendFile('stats.html', root));
+app.get('*', (req, res) => res.sendFile('index.html', root));
 
-// Start the server
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
 });
