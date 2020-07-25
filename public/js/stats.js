@@ -1,6 +1,7 @@
 API.getWorkoutsInRange()
   .then((res) => {
-    populateChart(res)})
+    populateChart(res)
+  })
   .catch((err) => console.log(err))
 
   function generatePalette() {
@@ -30,8 +31,9 @@ function populateChart(data) {
   let durations = duration(data);
   let pounds = calculateTotalWeight(data);
   let workouts = workoutNames(data);
+  let days = workoutDates(data);
   const colors = generatePalette();
-
+  
   let line = document.querySelector("#canvas").getContext("2d");
   let bar = document.querySelector("#canvas2").getContext("2d");
   let pie = document.querySelector("#canvas3").getContext("2d");
@@ -40,15 +42,7 @@ function populateChart(data) {
   let lineChart = new Chart(line, {
     type: "line",
     data: {
-      labels: [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
-      ],
+      labels: days,
       datasets: [
         {
           label: "Workout Duration In Minutes",
@@ -88,15 +82,7 @@ function populateChart(data) {
   let barChart = new Chart(bar, {
     type: "bar",
     data: {
-      labels: [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-      ],
+      labels: days,
       datasets: [
         {
           label: "Pounds",
@@ -213,4 +199,30 @@ function workoutNames(data) {
   });
   
   return workouts;
+}
+
+function workoutDates(data) {
+  let daysOfTheWeek = [];
+
+  data.forEach(workout => {
+    daysOfTheWeek.push(getDayFromDate(workout.day));
+  });
+ 
+  return Array.from(new Set(daysOfTheWeek)); // set only allows unique vals & Array from converts it
+}
+
+function getDayFromDate(date) {
+  const temp = new Date(date);
+  const day = temp.getDay();
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+
+  return days[day];
 }
