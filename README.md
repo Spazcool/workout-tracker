@@ -6,6 +6,7 @@
   * toasts are gross
   * buttons are misaligned
   * make it dark mode?
+* date not working?
 
 # Unit 17 Nosql Homework: Workout Tracker
 

@@ -4,38 +4,53 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="../css/style.css" />
+    <link type="image/x-icon" rel="shortcut icon" href="../images/index.ico" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
     <title>Fitness Chart</title>
   </head>
-  <nav>
-    <a href="/">Fitness Tracker</a>
-  </nav>
+
   <body>
-    <div class="container mt">
-      <h1 class="text-center">Workout Dashboard</h1>
-      <div class="row mt">
-        <div class="col-md-6">
-          <canvas id="canvas"></canvas>
+    <div class="wrapper workout">
+      <nav>
+        <a href="/"><i class="fas fa-home"></i></a>
+      </nav>
+      <header>
+        <h1>Workout Dashboard</h1>
+      </header>
+      <div class="container mt">
+        <div class="row mt">
+          <div class="col-sm-12 col-md-6">
+            <canvas id="canvas"></canvas>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <canvas id="canvas2"></canvas>
+          </div>
         </div>
-        <div class="col-md-6">
-          <canvas id="canvas2"></canvas>
-        </div>
-      </div>
-      <div class="row mt">
-        <div class="col-md-6">
-          <canvas id="canvas3"></canvas>
-        </div>
-        <div class="col-md-6">
-          <canvas id="canvas4"></canvas>
+        <div class="row mt" >
+          <div class="col-sm-12 col-md-6">
+            <canvas id="canvas3"></canvas>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <canvas id="canvas4"></canvas>
+          </div>
         </div>
       </div>
     </div>
+
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted"><i class="fa fa-code" aria-hidden="true"></i> with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="http://www.spazcool.com">Douglas Wright</a></span>
+      </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/968271eaaa.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="../js/api.js"></script>
     <script src="../js/stats.js"></script>

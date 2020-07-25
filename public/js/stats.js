@@ -213,7 +213,7 @@ function workoutDates(data) {
 
 function getDayFromDate(date) {
   const temp = new Date(date);
-  const day = temp.getDay();
+  const day = temp.getDay(); // todo likely a bug here if one wants stats over more than one week
   const days = [
     "Sunday",
     "Monday",
