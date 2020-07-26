@@ -182,10 +182,11 @@ function calculateTotalWeight(data) {
 
   data.forEach(workout => {
     workout.exercises.forEach(exercise => {
-      total.push(exercise.weight);
+      if(exercise.weight){
+        total.push(exercise.weight);
+      }
     });
   });
-
   return total;
 }
 
