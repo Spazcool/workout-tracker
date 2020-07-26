@@ -16,6 +16,7 @@ Or checkout the code in the [repo](https://github.com/Spazcool/workout-tracker).
 * Node
 * Mongo
 
+### Instructions
 1. Clone
 ```bash
 git clone https://github.com/Spazcool/workout-tracker.git
