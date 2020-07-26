@@ -1,33 +1,51 @@
-<!-- todo -->
-* update readme
-* host on heroku
-* fix css issues
-  * header nav links look & behave oddly
-  * toasts are gross
-  * buttons are misaligned
-  * make it dark mode?
-* date not working?
+# Workout Tracker
+A web app to view, create and track daily workouts. A user is able to log multiple exercises in a workout on a given day and track the name, type, weight, sets, reps, distance and duration of exercise. View multiple the combined weight of multiple exercises on the `stats` page. Powered with a Node backend running an Express server & pulling data from a NoSQL DB using the Mongoose ORM.
 
-# Unit 17 Nosql Homework: Workout Tracker
+<p align="center">
+   <img width="70%" height="300vh" src="./public/images/desktop.gif">
+   <img width="20%" height="300vh" src="./public/images/mobile.gif">
+</p>
 
-For this assignment, you'll create a workout tracker. You have already been provided with the front end code in the `Develop` folder. This assignment will require you to create Mongo database with a Mongoose schema and handle routes with Express.
+## Getting Started Remotely
 
-## User Story
+Play on the hosted [site](https://work-out-track-er.herokuapp.com/).
+Or checkout the code in the [repo](https://github.com/Spazcool/workout-tracker).
 
-* As a user, I want to be able to view create and track daily workouts. I want to be able to log multiple exercises in a workout on a given day. I should also be able to track the name, type, weight, sets, reps, and duration of exercise. If the exercise is a cardio exercise, I should be able to track my distance traveled.
+## Getting Started Locally
+### Prerequisites
+* Node
+* Mongo
 
-## Business Context
+1. Clone
+```bash
+git clone https://github.com/Spazcool/workout-tracker.git
+```
+2. Install dependencies
+```bash
+npm install
+```
+3. Run
+```bash
+node server
+```
 
-A consumer will reach their fitness goals quicker when they track their workout progress.
+## Built With
 
-## Acceptance Criteria
+* JS
+  * Node
+  * Express
+  * Mongoose
+* DB
+  * Mongo
+* HTML
+* CSS
+  * Semantic UI
+  * Bootstrap
 
-When the user loads the page, they should be given the option to create a new workout, or continue with their last workout.
+## Authors
 
-The user should be able to:
+* **Douglas Wright** - [Spazcool](https://github.com/Spazcool)
 
-  * Add exercises to a previous workout plan.
+## License
 
-  * Add new exercises to a new workout plan.
-
-  * View multiple the combined weight of multiple exercises on the `stats` page.
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details

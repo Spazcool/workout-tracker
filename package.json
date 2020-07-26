@@ -1,7 +1,8 @@
 {
-  "name": "mongoose_skeleton",
+  "name": "work-out-track-er",
   "version": "1.0.0",
-  "description": "",
+  "description": "A web app to view, create and track daily workouts.",
+  "author": "Douglas Wright",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +10,6 @@
     "watch": "nodemon server.js",
     "seed": "node seeders/seed.js"
   },
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
